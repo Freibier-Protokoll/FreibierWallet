@@ -12,7 +12,7 @@
   padding: 6px 3px;
   flex: 0 0 auto;
   display: flex;
-
+  
   &.binance-test-network .menu-icon-circle div {
     background-color: rgba(228, 3, 3, 0.7) !important;
   }
@@ -20,7 +20,6 @@
   &.binance-network .menu-icon-circle div {
     background-color: rgba(255, 146, 21, 0.7) !important;
   }
-
   &.ethereum-network .menu-icon-circle div {
     background-color: rgba(3, 135, 137, 0.7) !important;
   }
