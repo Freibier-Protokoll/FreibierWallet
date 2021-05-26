@@ -2,7 +2,6 @@
   align-items: center;
   background: $brown-100;
   position: relative;
-  color:white;
   z-index: $header-z-index;
   display: flex;
   flex-flow: column nowrap;
@@ -32,7 +31,7 @@
 
   &__metafox-logo {
     &--icon {
-      height:32 px;
+      height:32px;
 
       @media screen and (min-width: $break-large) {
         display: none;
