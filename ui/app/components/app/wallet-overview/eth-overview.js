@@ -71,6 +71,7 @@ const EthOverview = ({ className }) => {
   const selectedAccount = useSelector(getSelectedAccount)
   const { balance } = selectedAccount
   const chainId = useSelector(getCurrentChainId)
+  console.log(chainId)
   const enteredSwapsEvent = useNewMetricEvent({
     event: 'Swaps Opened',
     properties: { source: 'Main View', active_currency: 'ETH' },

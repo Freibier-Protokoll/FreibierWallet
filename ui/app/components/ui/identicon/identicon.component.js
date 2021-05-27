@@ -6,6 +6,7 @@ import contractMap from '@metamask/contract-metadata'
 import { checksumAddress } from '../../../helpers/utils/util'
 import Jazzicon from '../jazzicon'
 import BlockieIdenticon from './blockieIdenticon'
+import console from 'console'
 
 const getStyles = (diameter) => ({
   height: diameter,
@@ -104,11 +105,11 @@ export default class Identicon extends PureComponent {
         </div>
       )
     }
-
+    console.log("Address", address)
     return (
       <img
         className={classnames('identicon__eth-logo', className)}
-        src="./images/eth_logo.svg"
+        src="./images/bnb_logo.png"
         style={getStyles(diameter)}
         alt={alt}
       />
