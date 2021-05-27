@@ -15,6 +15,8 @@ function NetworkIndicator({
       className={classnames('network-component pointer', {
         'network-component--disabled': disabled,
         'ethereum-network': providerName === 'mainnet',
+        'binance-network': providerName === 'binanceMainnet',
+        'binance-test-network ': providerName === 'binanceTestnet',
         'ropsten-test-network': providerName === 'ropsten',
         'kovan-test-network': providerName === 'kovan',
         'rinkeby-test-network': providerName === 'rinkeby',
@@ -89,39 +91,39 @@ export default class Network extends Component {
           </NetworkIndicator>
         )
 
-    case 'binanceMainnet':
-      return (
-        <NetworkIndicator
-          disabled={disabled}
-          hoverText={t('binanceMainnet')}
-          onClick={onClick}
-          providerName={providerName}
-        >
-          <NetworkDropdownIcon
-            backgroundColor="#038789"
-            nonSelectBackgroundColor="#15afb2"
-            loading={networkNumber === 'loading'}
-          />
-          <div className="network-name">{t('binanceMainnet')}</div>
-        </NetworkIndicator>
-      )
-      
-    case 'binanceTestnet':
-      return (
-        <NetworkIndicator
-          disabled={disabled}
-          hoverText={t('binanceTestnet')}
-          onClick={onClick}
-          providerName={providerName}
-        >
-          <NetworkDropdownIcon
-            backgroundColor="#038789"
-            nonSelectBackgroundColor="#15afb2"
-            loading={networkNumber === 'loading'}
-          />
-          <div className="network-name">{t('binanceTestnet')}</div>
-        </NetworkIndicator>
-      )
+      case 'binanceMainnet':
+        return (
+          <NetworkIndicator
+            disabled={disabled}
+            hoverText={t('binanceMainnet')}
+            onClick={onClick}
+            providerName={providerName}
+          >
+            <NetworkDropdownIcon
+              backgroundColor="#038789"
+              nonSelectBackgroundColor="#15afb2"
+              loading={networkNumber === 'loading'}
+            />
+            <div className="network-name">{t('binanceMainnet')}</div>
+          </NetworkIndicator>
+        )
+
+      case 'binanceTestnet':
+        return (
+          <NetworkIndicator
+            disabled={disabled}
+            hoverText={t('binanceTestnet')}
+            onClick={onClick}
+            providerName={providerName}
+          >
+            <NetworkDropdownIcon
+              backgroundColor="#038789"
+              nonSelectBackgroundColor="#15afb2"
+              loading={networkNumber === 'loading'}
+            />
+            <div className="network-name">{t('binanceTestnet')}</div>
+          </NetworkIndicator>
+        )
 
       case 'ropsten':
         return (
