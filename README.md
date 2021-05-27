@@ -1,14 +1,10 @@
-# MetaMask Browser Extension
+# Freibier Wallet Extension
 
-You can find the latest version of MetaMask on [our official website](https://metamask.io/). For help using MetaMask, visit our [User Support Site](https://metamask.zendesk.com/hc/en-us).
+Für mehr Informationen besucht doch gerne unsere Homepage (//TODO: Link von der Homepage einbinden).
 
-MetaMask supports Firefox, Google Chrome, and Chromium-based browsers. We recommend using the latest available browser version.
+Falls ihr Interesse habt das Projekt zu unterstützen: 
 
-For up to the minute news, follow our [Twitter](https://twitter.com/metamask_io) or [Medium](https://medium.com/metamask) pages.
-
-To learn how to develop MetaMask-compatible applications, visit our [Developer Docs](https://metamask.github.io/metamask-docs/).
-
-To learn how to contribute to the MetaMask project itself, visit our [Internal Docs](https://github.com/MetaMask/metamask-extension/tree/develop/docs).
+    
 
 ## Building locally
 
