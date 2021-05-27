@@ -3,11 +3,20 @@ import { createSelector } from 'reselect'
 import { addHexPrefix } from '../../../app/scripts/lib/util'
 import { NETWORK_TYPES } from '../helpers/constants/common'
 import {
+  MAINNET_CHAIN_ID,
+  TEST_CHAINS,
+  NETWORK_TYPE_RPC,
+  NATIVE_CURRENCY_TOKEN_IMAGE_MAP,
+} from '../../../shared/constants/network';
+
+import {
   shortenAddress,
   checksumAddress,
   getAccountByAddress,
 } from '../helpers/utils/util'
 import { getPermissionsRequestCount } from './permissions'
+
+import { getNativeCurrency } from './send';
 
 export function getNetworkIdentifier(state) {
   const {
@@ -355,4 +364,9 @@ export function getIpfsGateway(state) {
 
 export function getUSDConversionRate(state) {
   return state.metamask.usdConversionRate
+}
+
+export function getNativeCurrencyImage(state) {
+  const nativeCurrency = getNativeCurrency(state).toUpperCase();
+  return NATIVE_CURRENCY_TOKEN_IMAGE_MAP[nativeCurrency];
 }

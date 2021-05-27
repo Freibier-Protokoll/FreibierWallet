@@ -26,6 +26,7 @@ import {
   getShouldShowFiat,
   getCurrentChainId,
   getCurrentKeyring,
+  getNativeCurrencyImage,
 } from '../../../selectors/selectors'
 import SwapIcon from '../../ui/icon/swap-icon.component'
 import BuyIcon from '../../ui/icon/overview-buy-icon.component'
@@ -71,7 +72,8 @@ const EthOverview = ({ className }) => {
   const selectedAccount = useSelector(getSelectedAccount)
   const { balance } = selectedAccount
   const chainId = useSelector(getCurrentChainId)
-  console.log(chainId)
+  const primaryTokenImage = useSelector(getNativeCurrencyImage);
+
   const enteredSwapsEvent = useNewMetricEvent({
     event: 'Swaps Opened',
     properties: { source: 'Main View', active_currency: 'ETH' },
@@ -154,7 +156,7 @@ const EthOverview = ({ className }) => {
         </>
       }
       className={className}
-      icon={<Identicon diameter={32} />}
+      icon={<Identicon diameter={32} image={primaryTokenImage} imageBorder/>}
     />
   )
 }

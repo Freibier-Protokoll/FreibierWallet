@@ -2,7 +2,9 @@
 
 Für mehr Informationen besucht doch gerne unsere Homepage (//TODO: Link von der Homepage einbinden).
 
+Falls ihr Interesse habt das Projekt zu unterstützen: 
 
+    
 
 ## Building locally
 
