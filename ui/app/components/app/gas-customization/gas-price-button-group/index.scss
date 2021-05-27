@@ -52,7 +52,7 @@
   }
 
   .button-group__button--active {
-    border-color: $primary-blue;
+    border-color: $brown-100;
     color: $scorpion;
 
     i {
@@ -222,10 +222,10 @@
 
   .button-group__button--active {
     background: #f7fcff;
-    border-color: #2c8bdc;
+    border-color: $brown-100;
 
     &:first-child {
-      border-color: #2c8bdc;
+      border-color: $brown-100;
     }
 
     .button-check-wrapper {
@@ -246,7 +246,7 @@
       @include H7;
 
       display: flex;
-      color: $primary-blue;
+      color:$brown-100;
       font-weight: 900;
     }
   }

@@ -60,7 +60,7 @@
     cursor: pointer;
     border-radius: 28px;
     padding: 5px 18px;
-    background: linear-gradient(90deg, $Blue-500 0%, $Blue-400 101.32%);
+    background: linear-gradient(90deg, $brown-100 0%, $brown-100 101.32%);
 
 
     @media screen and (min-width: 576px) {
@@ -77,7 +77,7 @@
   }
 
   &__view-other-button-fade {
-    background: #0372c3;
+    background: $brown-100;
     opacity: 0;
     transition: opacity ease-in-out 1s;
 

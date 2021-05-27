@@ -24,13 +24,13 @@ export default class MetaFoxLogo extends PureComponent {
         })}
       >
         <img
-          height="30"
+          height="40"
           src="/images/logo/freibier-logo.png"
           className={classnames(
             'app-header__metafox-logo',
             'app-header__metafox-logo--horizontal',
           )}
-          alt=""
+          alt="freibier-logo"
         />
         <img
           {...iconProps}
@@ -39,7 +39,7 @@ export default class MetaFoxLogo extends PureComponent {
             'app-header__metafox-logo',
             'app-header__metafox-logo--icon',
           )}
-          alt=""
+          alt="freibier-logo"
         />
       </div>
     )

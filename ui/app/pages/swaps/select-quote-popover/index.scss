@@ -83,7 +83,7 @@
     border: none;
 
     &:hover {
-      border: 1px solid $Blue-500;
+      border: 1px solid $brown-100;
       width: 101%;
       padding-right: 11px;
       padding-left: 19.5px;
@@ -100,7 +100,7 @@
 
     &--selected {
       color: $white;
-      background: linear-gradient(90deg, $Blue-500 0%, $Blue-400 101.32%);
+      background: linear-gradient(90deg, $brown-100 0%, $brown-100 101.32%);
       box-shadow: 0 10px 39px rgba(3, 125, 214, 0.15);
       border-radius: 8px;
       border-bottom: none;
@@ -108,7 +108,7 @@
       height: 64px;
 
       &:hover {
-        background: linear-gradient(90deg, $Blue-500 0%, $Blue-400 101.32%);
+        background: linear-gradient(90deg, $brown-100 0%, $brown-100 101.32%);
         width: 100%;
         padding-left: 20px;
         padding-right: 12px;

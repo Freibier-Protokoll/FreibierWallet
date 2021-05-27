@@ -15,6 +15,14 @@
       background-color: lighten($blue-lagoon, 68%);
     }
 
+    &--binanceMainnet {
+      background-color: lighten($Orange-500, 68%);
+    }
+
+    &--binanceTestnet {
+      background-color: lighten($Red-600, 68%);
+    }
+
     &--ropsten {
       background-color: lighten($crimson, 45%);
     }
@@ -45,6 +53,14 @@
 
     &--mainnet {
       background-color: $blue-lagoon;
+    }
+
+    &--binanceMainnet {
+      background-color: $Orange-500;
+    }
+
+    &--binanceTestnet {
+      background-color: $Red-600;
     }
 
     &--ropsten {
