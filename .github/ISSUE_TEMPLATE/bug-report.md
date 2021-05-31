@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Using MetaMask, but it's not working as you expect?
+about: Using Freibier, but it's not working as you expect?
 
 ---
 
