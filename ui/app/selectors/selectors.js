@@ -2,12 +2,7 @@ import { stripHexPrefix } from 'ethereumjs-util'
 import { createSelector } from 'reselect'
 import { addHexPrefix } from '../../../app/scripts/lib/util'
 import { NETWORK_TYPES } from '../helpers/constants/common'
-import {
-  MAINNET_CHAIN_ID,
-  TEST_CHAINS,
-  NETWORK_TYPE_RPC,
-  NATIVE_CURRENCY_TOKEN_IMAGE_MAP,
-} from '../../../shared/constants/network';
+import { NATIVE_CURRENCY_TOKEN_IMAGE_MAP } from '../../../shared/constants/network'
 
 import {
   shortenAddress,
@@ -16,7 +11,8 @@ import {
 } from '../helpers/utils/util'
 import { getPermissionsRequestCount } from './permissions'
 
-import { getNativeCurrency } from './send';
+import { getNativeCurrency } from './send'
+import console from 'console'
 
 export function getNetworkIdentifier(state) {
   const {
@@ -367,6 +363,11 @@ export function getUSDConversionRate(state) {
 }
 
 export function getNativeCurrencyImage(state) {
-  const nativeCurrency = getNativeCurrency(state).toUpperCase();
-  return NATIVE_CURRENCY_TOKEN_IMAGE_MAP[nativeCurrency];
+  state.metamask.nativeCurrency = state.metamask.provider.ticker
+  const nativeCurrency = state.metamask.nativeCurrency
+  return NATIVE_CURRENCY_TOKEN_IMAGE_MAP[nativeCurrency]
+}
+
+export function getTicker(state) {
+  return state.metamask.provider.ticker
 }

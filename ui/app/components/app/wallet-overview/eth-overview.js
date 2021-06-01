@@ -8,14 +8,9 @@ import Identicon from '../../ui/identicon'
 import { I18nContext } from '../../../contexts/i18n'
 import {
   SEND_ROUTE,
-  BUILD_QUOTE_ROUTE,
   CONTACT_ADD_ROUTE,
 } from '../../../helpers/constants/routes'
-import {
-  useMetricEvent,
-  useNewMetricEvent,
-} from '../../../hooks/useMetricEvent'
-import { useSwapsEthToken } from '../../../hooks/useSwapsEthToken'
+import { useMetricEvent } from '../../../hooks/useMetricEvent'
 import Tooltip from '../../ui/tooltip'
 import UserPreferencedCurrencyDisplay from '../user-preferenced-currency-display'
 import { PRIMARY, SECONDARY } from '../../../helpers/constants/common'
@@ -24,19 +19,12 @@ import {
   isBalanceCached,
   getSelectedAccount,
   getShouldShowFiat,
-  getCurrentChainId,
-  getCurrentKeyring,
   getNativeCurrencyImage,
+  getCurrency,
 } from '../../../selectors/selectors'
-import SwapIcon from '../../ui/icon/swap-icon.component'
 import BuyIcon from '../../ui/icon/overview-buy-icon.component'
 import SendIcon from '../../ui/icon/overview-send-icon.component'
-import {
-  getSwapsFeatureLiveness,
-  setSwapsFromToken,
-} from '../../../ducks/swaps/swaps'
 import IconButton from '../../ui/icon-button'
-import { MAINNET_CHAIN_ID } from '../../../../../app/scripts/controllers/network/enums'
 import WalletOverview from './wallet-overview'
 import Approve from '../../ui/icon/approve-icon.component'
 
@@ -65,23 +53,11 @@ const EthOverview = ({ className }) => {
     },
   })
   const history = useHistory()
-  const keyring = useSelector(getCurrentKeyring)
-  const usingHardwareWallet = keyring.type.search('Hardware') !== -1
   const balanceIsCached = useSelector(isBalanceCached)
   const showFiat = useSelector(getShouldShowFiat)
   const selectedAccount = useSelector(getSelectedAccount)
   const { balance } = selectedAccount
-  const chainId = useSelector(getCurrentChainId)
-  const primaryTokenImage = useSelector(getNativeCurrencyImage);
-
-  const enteredSwapsEvent = useNewMetricEvent({
-    event: 'Swaps Opened',
-    properties: { source: 'Main View', active_currency: 'ETH' },
-    category: 'swaps',
-  })
-  const swapsEnabled = useSelector(getSwapsFeatureLiveness)
-  const swapsEthToken = useSwapsEthToken()
-
+  const primaryTokenImage = useSelector(getNativeCurrencyImage)
   return (
     <WalletOverview
       balance={
@@ -156,7 +132,7 @@ const EthOverview = ({ className }) => {
         </>
       }
       className={className}
-      icon={<Identicon diameter={32} image={primaryTokenImage} imageBorder/>}
+      icon={<Identicon diameter={32} image={primaryTokenImage} imageBorder />}
     />
   )
 }

@@ -21,7 +21,12 @@ import {
   NETWORK_TYPE_TO_ID_MAP,
   MAINNET_CHAIN_ID,
   RINKEBY_CHAIN_ID,
+  BINANCE_PROVIDER_TYPES,
+  BINANCE_MAINNET,
+  BINANCE_MAINNET_RPCURL,
+  BINANCE_TESTNET_RPCURL,
 } from './enums'
+import console from 'console'
 
 const env = process.env.METAMASK_ENV
 
@@ -168,17 +173,22 @@ export default class NetworkController extends EventEmitter {
   }
 
   async setProviderType(type, rpcUrl = '', ticker = 'ETH', nickname = '') {
-    assert.notEqual(
-      type,
-      'rpc',
-      `NetworkController - cannot call "setProviderType" with type 'rpc'. use "setRpcTarget"`,
-    )
-    assert(
-      INFURA_PROVIDER_TYPES.includes(type),
-      `NetworkController - Unknown rpc type "${type}"`,
-    )
     const { chainId } = NETWORK_TYPE_TO_ID_MAP[type]
-    this.setProviderConfig({ type, rpcUrl, chainId, ticker, nickname })
+    const isBinance = BINANCE_PROVIDER_TYPES.includes(type)
+    if (isBinance) {
+      console.log(type, rpcUrl, chainId)
+      ticker = 'BNB'
+      type === BINANCE_MAINNET
+        ? (rpcUrl = BINANCE_MAINNET_RPCURL)
+        : (rpcUrl = BINANCE_TESTNET_RPCURL)
+      this.setProviderConfig({ type, rpcUrl, chainId, ticker, nickname })
+    } else {
+      assert(
+        INFURA_PROVIDER_TYPES.includes(type),
+        `NetworkController - Unknown rpc type "${type}"`,
+      )
+      this.setProviderConfig({ type, rpcUrl, chainId, ticker, nickname })
+    }
   }
 
   resetConnection() {
@@ -215,10 +225,11 @@ export default class NetworkController extends EventEmitter {
   _configureProvider({ type, rpcUrl, chainId }) {
     // infura type-based endpoints
     const isInfura = INFURA_PROVIDER_TYPES.includes(type)
+    const isBinance = BINANCE_PROVIDER_TYPES.includes(type)
     if (isInfura) {
       this._configureInfuraProvider(type, this._infuraProjectId)
       // url-based rpc endpoints
-    } else if (type === 'rpc') {
+    } else if (type === 'rpc' || isBinance) {
       this._configureStandardProvider(rpcUrl, chainId)
     } else {
       throw new Error(

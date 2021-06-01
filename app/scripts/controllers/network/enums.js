@@ -30,11 +30,21 @@ export const GOERLI_DISPLAY_NAME = 'Goerli'
 export const BINANCE_MAINNET_DISPLAY_NAME = 'Binance Mainnet'
 export const BINANCE_TESTNET_DISPLAY_NAME = 'Binance Testnet'
 
+export const BINANCE_MAINNET_RPCURL = 'https://bsc-dataseed.binance.org/'
+export const BINANCE_TESTNET_RPCURL = 'https://data-seed-prebsc-1-s1.binance.org:8545/'
+
 export const INFURA_PROVIDER_TYPES = [ROPSTEN, RINKEBY, KOVAN, MAINNET, GOERLI]
+export const BINANCE_PROVIDER_TYPES = [BINANCE_MAINNET, BINANCE_TESTNET]
 
 export const NETWORK_TYPE_TO_ID_MAP = {
-  [BINANCE_MAINNET]: { networkId: BINANCE_MAINNET_NETWORK_ID, chainId: BINANCE_MAINNET_CHAIN_ID },
-  [BINANCE_TESTNET]: { networkId: BINANCE_TESTNET_NETWORK_ID, chainId: BINANCE_TESTNET_CHAIN_ID },
+  [BINANCE_MAINNET]: {
+    networkId: BINANCE_MAINNET_NETWORK_ID,
+    chainId: BINANCE_MAINNET_CHAIN_ID,
+  },
+  [BINANCE_TESTNET]: {
+    networkId: BINANCE_TESTNET_NETWORK_ID,
+    chainId: BINANCE_TESTNET_CHAIN_ID,
+  },
   [ROPSTEN]: { networkId: ROPSTEN_NETWORK_ID, chainId: ROPSTEN_CHAIN_ID },
   [RINKEBY]: { networkId: RINKEBY_NETWORK_ID, chainId: RINKEBY_CHAIN_ID },
   [KOVAN]: { networkId: KOVAN_NETWORK_ID, chainId: KOVAN_CHAIN_ID },

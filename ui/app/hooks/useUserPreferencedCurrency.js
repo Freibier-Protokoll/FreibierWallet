@@ -3,8 +3,11 @@ import {
   getPreferences,
   getShouldShowFiat,
   getNativeCurrency,
+  getTicker,
 } from '../selectors'
 import { PRIMARY, SECONDARY, ETH } from '../helpers/constants/common'
+import { BNB_SYMBOL } from '../../../shared/constants/network'
+import console from 'console'
 
 /**
  * Defines the shape of the options parameter for useUserPreferencedCurrency
@@ -35,9 +38,10 @@ import { PRIMARY, SECONDARY, ETH } from '../helpers/constants/common'
  */
 export function useUserPreferencedCurrency(type, opts = {}) {
   const nativeCurrency = useSelector(getNativeCurrency)
+  const ticker = useSelector(getTicker)
   const { useNativeCurrencyAsPrimaryCurrency } = useSelector(getPreferences)
   const showFiat = useSelector(getShouldShowFiat)
-
+  console.log('Native: ', nativeCurrency)
   let currency, numberOfDecimals
   if (
     !showFiat ||
@@ -45,7 +49,11 @@ export function useUserPreferencedCurrency(type, opts = {}) {
     (type === SECONDARY && !useNativeCurrencyAsPrimaryCurrency)
   ) {
     // Display ETH
-    currency = nativeCurrency || ETH
+    if (nativeCurrency === BNB_SYMBOL) {
+      currency = nativeCurrency
+    } else {
+      currency = nativeCurrency || ETH
+    }
     numberOfDecimals = opts.numberOfDecimals || opts.ethNumberOfDecimals || 6
   } else if (
     (type === SECONDARY && useNativeCurrencyAsPrimaryCurrency) ||
@@ -54,6 +62,6 @@ export function useUserPreferencedCurrency(type, opts = {}) {
     // Display Fiat
     numberOfDecimals = opts.numberOfDecimals || opts.fiatNumberOfDecimals || 2
   }
-
+  console.log(currency)
   return { currency, numberOfDecimals }
 }

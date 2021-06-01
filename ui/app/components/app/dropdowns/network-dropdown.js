@@ -16,11 +16,7 @@ import {
 } from '../../../../../app/scripts/lib/util'
 
 import { Dropdown, DropdownMenuItem } from './components/dropdown'
-import NetworkDropdownIcon from './components/network-dropdown-icon'
-import { binanceRpcListDetail } from '../../../../../app/scripts/BinanceDefaultState'
-
-
-//import binanceRpcListDetail from '../../../../../app/scripts/BinanceDefaultState'
+import NetworkDropdownIcon from './components/network-dropdown-icon'  
 
 // classes from nodes of the toggle element.
 const notToggleElementClassnames = [
@@ -216,8 +212,6 @@ class NetworkDropdown extends Component {
       setNetworksTabAddMode,
       setSelectedSettingsRpcUrl,
     } = this.props
-    const rpcListCustom = this.props.frequentRpcListDetail.filter( item => item.custom == true)
-    const rpcListBinance = binanceRpcListDetail
     const isOpen = this.props.networkDropdownOpen
     const dropdownMenuItemStyle = {
       fontSize: '16px',
@@ -260,7 +254,6 @@ class NetworkDropdown extends Component {
             {this.context.t('defaultNetwork')}
           </div>
         </div>
-        {this.renderCustomRpcList(rpcListBinance, this.props.provider)}
         <DropdownMenuItem
           key="main"
           closeMenu={() => this.props.hideNetworkDropdown()}
@@ -283,6 +276,54 @@ class NetworkDropdown extends Component {
             }}
           >
             {this.context.t('mainnet')}
+          </span>
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          key="binanceMainnet"
+          closeMenu={() => this.props.hideNetworkDropdown()}
+          onClick={() => this.handleClick('binanceMainnet')}
+          style={{ ...dropdownMenuItemStyle, borderColor: '#038789' }}
+        >
+          {providerType === 'binanceMainnet' ? (
+            <i className="fa fa-check" />
+          ) : (
+            <div className="network-check__transparent">✓</div>
+          )}
+          <NetworkDropdownIcon
+            backgroundColor="#29B6AA"
+            isSelected={providerType === 'binanceMainnet'}
+          />
+          <span
+            className="network-name-item"
+            style={{
+              color: providerType === 'binanceMainnet' ? '#ffffff' : '#9b9b9b',
+            }}
+          >
+            {this.context.t('binanceMainnet')}
+          </span>
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          key="binanceTestnet"
+          closeMenu={() => this.props.hideNetworkDropdown()}
+          onClick={() => this.handleClick('binanceTestnet')}
+          style={{ ...dropdownMenuItemStyle, borderColor: '#038789' }}
+        >
+          {providerType === 'binanceTestnet' ? (
+            <i className="fa fa-check" />
+          ) : (
+            <div className="network-check__transparent">✓</div>
+          )}
+          <NetworkDropdownIcon
+            backgroundColor="#29B600"
+            isSelected={providerType === 'binanceTestnet'}
+          />
+          <span
+            className="network-name-item"
+            style={{
+              color: providerType === 'binanceTestnet' ? '#ffffff' : '#9b9b9b',
+            }}
+          >
+            {this.context.t('binanceTestnet')}
           </span>
         </DropdownMenuItem>
         <DropdownMenuItem
@@ -381,7 +422,6 @@ class NetworkDropdown extends Component {
             {this.context.t('goerli')}
           </span>
         </DropdownMenuItem>
-        {this.renderCustomRpcList(rpcListCustom, this.props.provider)}
         <DropdownMenuItem
           closeMenu={() => this.props.hideNetworkDropdown()}
           onClick={() => {
