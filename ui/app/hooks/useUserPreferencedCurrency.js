@@ -41,7 +41,7 @@ export function useUserPreferencedCurrency(type, opts = {}) {
   const ticker = useSelector(getTicker)
   const { useNativeCurrencyAsPrimaryCurrency } = useSelector(getPreferences)
   const showFiat = useSelector(getShouldShowFiat)
-  console.log('Native: ', nativeCurrency)
+  console.log('Native: ', nativeCurrency, 'Ticker', ticker)
   let currency, numberOfDecimals
   if (
     !showFiat ||
@@ -49,11 +49,7 @@ export function useUserPreferencedCurrency(type, opts = {}) {
     (type === SECONDARY && !useNativeCurrencyAsPrimaryCurrency)
   ) {
     // Display ETH
-    if (nativeCurrency === BNB_SYMBOL) {
-      currency = nativeCurrency
-    } else {
-      currency = nativeCurrency || ETH
-    }
+    currency = ticker || ETH
     numberOfDecimals = opts.numberOfDecimals || opts.ethNumberOfDecimals || 6
   } else if (
     (type === SECONDARY && useNativeCurrencyAsPrimaryCurrency) ||

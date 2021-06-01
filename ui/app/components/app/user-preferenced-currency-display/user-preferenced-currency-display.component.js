@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { PRIMARY, SECONDARY, ETH } from '../../../helpers/constants/common'
 import CurrencyDisplay from '../../ui/currency-display'
 import { useUserPreferencedCurrency } from '../../../hooks/useUserPreferencedCurrency'
-import console from 'console'
 
 export default function UserPreferencedCurrencyDisplay({
   'data-testid': dataTestId,
@@ -20,15 +19,12 @@ export default function UserPreferencedCurrencyDisplay({
     fiatNumberOfDecimals,
     numberOfDecimals: propsNumberOfDecimals,
   })
-  console.log(type, currency)
   const prefixComponent = useMemo(() => {
     return (
       currency === ETH &&
       showEthLogo && <img src="/images/eth.svg" height={ethLogoHeight} alt="" />
     )
   }, [currency, showEthLogo, ethLogoHeight])
-
-  console.log(prefixComponent)
 
   return (
     <CurrencyDisplay
