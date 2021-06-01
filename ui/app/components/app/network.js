@@ -70,7 +70,6 @@ export default class Network extends Component {
       providerNick = provider.nickname || ''
       providerUrl = provider.rpcUrl
     }
-
     switch (providerName) {
       case 'mainnet':
         return (

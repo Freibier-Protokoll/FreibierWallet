@@ -47,7 +47,7 @@
     "message": "Add an account"
   },
   "addContact": {
-    "message": "Add contact"
+    "message": "Add"
   },
   "addAcquiredTokens": {
     "message": "Add the tokens you've acquired using MetaMask"
@@ -212,7 +212,7 @@
     "message": "Binance Mainnet"
   },
   "binanceTestnet": {
-    "message": "Binance Test Network"
+    "message": "Binance Testnet"
   },
   "blockExplorerUrl": {
     "message": "Block Explorer"
