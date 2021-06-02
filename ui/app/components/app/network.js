@@ -97,7 +97,7 @@ export default class Network extends Component {
           providerName={providerName}
         >
           <NetworkDropdownIcon
-            backgroundColor="#038789"
+            backgroundColor="#29B6AA"
             nonSelectBackgroundColor="#15afb2"
             loading={networkNumber === 'loading'}
           />
@@ -114,7 +114,7 @@ export default class Network extends Component {
           providerName={providerName}
         >
           <NetworkDropdownIcon
-            backgroundColor="#038789"
+            backgroundColor="#29B600"
             nonSelectBackgroundColor="#15afb2"
             loading={networkNumber === 'loading'}
           />

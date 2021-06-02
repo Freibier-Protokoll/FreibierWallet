@@ -8,6 +8,7 @@ import log from 'loglevel'
 import { isPrefixedFormattedHexString } from '../lib/util'
 import { LISTED_CONTRACT_ADDRESSES } from '../../../shared/constants/tokens'
 import { NETWORK_TYPE_TO_ID_MAP } from './network/enums'
+import console from 'console'
 
 export default class PreferencesController {
   /**
@@ -514,7 +515,6 @@ export default class PreferencesController {
     rpcPrefs = {},
   ) {
     const rpcList = this.getFrequentRpcListDetail()
-
     const index = rpcList.findIndex((element) => {
       return element.rpcUrl === rpcUrl
     })

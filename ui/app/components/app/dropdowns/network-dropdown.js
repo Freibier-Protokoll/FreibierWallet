@@ -255,30 +255,6 @@ class NetworkDropdown extends Component {
           </div>
         </div>
         <DropdownMenuItem
-          key="main"
-          closeMenu={() => this.props.hideNetworkDropdown()}
-          onClick={() => this.handleClick('mainnet')}
-          style={{ ...dropdownMenuItemStyle, borderColor: '#038789' }}
-        >
-          {providerType === 'mainnet' ? (
-            <i className="fa fa-check" />
-          ) : (
-            <div className="network-check__transparent">✓</div>
-          )}
-          <NetworkDropdownIcon
-            backgroundColor="#29B6AF"
-            isSelected={providerType === 'mainnet'}
-          />
-          <span
-            className="network-name-item"
-            style={{
-              color: providerType === 'mainnet' ? '#ffffff' : '#9b9b9b',
-            }}
-          >
-            {this.context.t('mainnet')}
-          </span>
-        </DropdownMenuItem>
-        <DropdownMenuItem
           key="binanceMainnet"
           closeMenu={() => this.props.hideNetworkDropdown()}
           onClick={() => this.handleClick('binanceMainnet')}
@@ -300,6 +276,30 @@ class NetworkDropdown extends Component {
             }}
           >
             {this.context.t('binanceMainnet')}
+          </span>
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          key="main"
+          closeMenu={() => this.props.hideNetworkDropdown()}
+          onClick={() => this.handleClick('mainnet')}
+          style={{ ...dropdownMenuItemStyle, borderColor: '#038789' }}
+        >
+          {providerType === 'mainnet' ? (
+            <i className="fa fa-check" />
+          ) : (
+            <div className="network-check__transparent">✓</div>
+          )}
+          <NetworkDropdownIcon
+            backgroundColor="#29B6AF"
+            isSelected={providerType === 'mainnet'}
+          />
+          <span
+            className="network-name-item"
+            style={{
+              color: providerType === 'mainnet' ? '#ffffff' : '#9b9b9b',
+            }}
+          >
+            {this.context.t('mainnet')}
           </span>
         </DropdownMenuItem>
         <DropdownMenuItem
