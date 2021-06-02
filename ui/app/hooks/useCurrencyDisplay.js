@@ -8,6 +8,7 @@ import {
   getCurrentCurrency,
   getConversionRate,
   getNativeCurrency,
+  getTicker,
 } from '../selectors'
 
 /**
@@ -43,7 +44,7 @@ export function useCurrencyDisplay(
   { displayValue, prefix, numberOfDecimals, denomination, currency, ...opts },
 ) {
   const currentCurrency = useSelector(getCurrentCurrency)
-  const nativeCurrency = useSelector(getNativeCurrency)
+  const nativeCurrency = useSelector(getTicker)
   const conversionRate = useSelector(getConversionRate)
 
   const toCurrency = currency || currentCurrency

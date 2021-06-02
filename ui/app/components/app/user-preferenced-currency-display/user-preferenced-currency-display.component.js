@@ -25,7 +25,6 @@ export default function UserPreferencedCurrencyDisplay({
       showEthLogo && <img src="/images/eth.svg" height={ethLogoHeight} alt="" />
     )
   }, [currency, showEthLogo, ethLogoHeight])
-
   return (
     <CurrencyDisplay
       {...restProps}
