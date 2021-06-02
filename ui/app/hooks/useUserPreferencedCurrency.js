@@ -2,12 +2,9 @@ import { useSelector } from 'react-redux'
 import {
   getPreferences,
   getShouldShowFiat,
-  getNativeCurrency,
   getTicker,
 } from '../selectors'
 import { PRIMARY, SECONDARY, ETH } from '../helpers/constants/common'
-import { BNB_SYMBOL } from '../../../shared/constants/network'
-import console from 'console'
 
 /**
  * Defines the shape of the options parameter for useUserPreferencedCurrency

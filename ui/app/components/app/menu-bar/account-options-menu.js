@@ -68,7 +68,6 @@ export default function AccountOptionsMenu({ anchorElement, onClose }) {
 
   const { address } = selectedIdentity
   const isRemovable = keyring.type !== 'HD Key Tree'
-
   return (
     <Menu
       anchorElement={anchorElement}
@@ -111,7 +110,6 @@ export default function AccountOptionsMenu({ anchorElement, onClose }) {
               url: getAccountLink(address, network, rpcPrefs),
             })
           }
-
           onClose()
         }}
         subtitle={
@@ -123,7 +121,7 @@ export default function AccountOptionsMenu({ anchorElement, onClose }) {
         }
         iconClassName="fas fa-external-link-alt"
       >
-        {rpcPrefs.blockExplorerUrl ? t('viewinExplorer') : t('viewOnEtherscan')}
+        {t('viewinExplorer')}
       </MenuItem>
       <MenuItem
         data-testid="account-options-menu__connected-sites"
