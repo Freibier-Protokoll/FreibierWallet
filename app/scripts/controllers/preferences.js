@@ -515,7 +515,6 @@ export default class PreferencesController {
     rpcPrefs = {},
   ) {
     const rpcList = this.getFrequentRpcListDetail()
-    console.log(rpcList)
     const index = rpcList.findIndex((element) => {
       return element.rpcUrl === rpcUrl
     })
