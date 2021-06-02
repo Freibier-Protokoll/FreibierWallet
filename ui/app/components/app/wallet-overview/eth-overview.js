@@ -20,7 +20,6 @@ import {
   getSelectedAccount,
   getShouldShowFiat,
   getNativeCurrencyImage,
-  getCurrency,
 } from '../../../selectors/selectors'
 import BuyIcon from '../../ui/icon/overview-buy-icon.component'
 import SendIcon from '../../ui/icon/overview-send-icon.component'

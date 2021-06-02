@@ -2,12 +2,9 @@ import { useSelector } from 'react-redux'
 import {
   getPreferences,
   getShouldShowFiat,
-  getNativeCurrency,
   getTicker,
 } from '../selectors'
 import { PRIMARY, SECONDARY, ETH } from '../helpers/constants/common'
-import { BNB_SYMBOL } from '../../../shared/constants/network'
-import console from 'console'
 
 /**
  * Defines the shape of the options parameter for useUserPreferencedCurrency
@@ -37,11 +34,9 @@ import console from 'console'
  * @return {UserPreferredCurrency}
  */
 export function useUserPreferencedCurrency(type, opts = {}) {
-  const nativeCurrency = useSelector(getNativeCurrency)
   const ticker = useSelector(getTicker)
   const { useNativeCurrencyAsPrimaryCurrency } = useSelector(getPreferences)
   const showFiat = useSelector(getShouldShowFiat)
-  console.log('Native: ', nativeCurrency, 'Ticker', ticker)
   let currency, numberOfDecimals
   if (
     !showFiat ||
@@ -58,6 +53,5 @@ export function useUserPreferencedCurrency(type, opts = {}) {
     // Display Fiat
     numberOfDecimals = opts.numberOfDecimals || opts.fiatNumberOfDecimals || 2
   }
-  console.log(currency)
   return { currency, numberOfDecimals }
 }

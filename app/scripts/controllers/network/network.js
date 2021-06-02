@@ -13,6 +13,7 @@ import EthQuery from 'eth-query'
 import createMetamaskMiddleware from './createMetamaskMiddleware'
 import createInfuraClient from './createInfuraClient'
 import createJsonRpcClient from './createJsonRpcClient'
+import { BNB_SYMBOL } from '../../../../shared/constants/network'
 
 import {
   RINKEBY,
@@ -26,7 +27,6 @@ import {
   BINANCE_MAINNET_RPCURL,
   BINANCE_TESTNET_RPCURL,
 } from './enums'
-import console from 'console'
 
 const env = process.env.METAMASK_ENV
 
@@ -176,8 +176,7 @@ export default class NetworkController extends EventEmitter {
     const { chainId } = NETWORK_TYPE_TO_ID_MAP[type]
     const isBinance = BINANCE_PROVIDER_TYPES.includes(type)
     if (isBinance) {
-      console.log(type, rpcUrl, chainId)
-      ticker = 'BNB'
+      ticker = BNB_SYMBOL
       type === BINANCE_MAINNET
         ? (rpcUrl = BINANCE_MAINNET_RPCURL)
         : (rpcUrl = BINANCE_TESTNET_RPCURL)

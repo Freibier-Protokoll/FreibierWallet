@@ -7,6 +7,7 @@ import { showModal } from '../../../store/actions'
 import { CONNECTED_ROUTE } from '../../../helpers/constants/routes'
 import { Menu, MenuItem } from '../../ui/menu'
 import getAccountLink from '../../../../lib/account-link'
+import getBinanceLink from '../../../../lib/binance-link'
 import {
   getCurrentKeyring,
   getCurrentNetwork,
@@ -17,6 +18,7 @@ import { useI18nContext } from '../../../hooks/useI18nContext'
 import { useMetricEvent } from '../../../hooks/useMetricEvent'
 import { getEnvironmentType } from '../../../../../app/scripts/lib/util'
 import { ENVIRONMENT_TYPE_FULLSCREEN } from '../../../../../app/scripts/lib/enums'
+import { BINANCE_NETWORK_IDS } from '../../../../../app/scripts/controllers/network/enums'
 
 export default function AccountOptionsMenu({ anchorElement, onClose }) {
   const t = useI18nContext()
@@ -50,15 +52,22 @@ export default function AccountOptionsMenu({ anchorElement, onClose }) {
       name: 'Opened Connected Sites',
     },
   })
+  const viewOnBscscanEvent = useMetricEvent({
+    eventOpts: {
+      category: 'Navigation',
+      action: 'Account Options',
+      name: 'Clicked View on Bscscan',
+    },
+  })
 
   const keyring = useSelector(getCurrentKeyring)
   const network = useSelector(getCurrentNetwork)
+  const isBinance = BINANCE_NETWORK_IDS.includes(network)
   const rpcPrefs = useSelector(getRpcPrefsForCurrentProvider)
   const selectedIdentity = useSelector(getSelectedIdentity)
 
   const { address } = selectedIdentity
   const isRemovable = keyring.type !== 'HD Key Tree'
-
   return (
     <Menu
       anchorElement={anchorElement}
@@ -90,10 +99,17 @@ export default function AccountOptionsMenu({ anchorElement, onClose }) {
       </MenuItem>
       <MenuItem
         onClick={() => {
-          viewOnEtherscanEvent()
-          global.platform.openTab({
-            url: getAccountLink(address, network, rpcPrefs),
-          })
+          if (isBinance) {
+            viewOnBscscanEvent()
+            global.platform.openTab({
+              url: getBinanceLink(network, address),
+            })
+          } else {
+            viewOnEtherscanEvent()
+            global.platform.openTab({
+              url: getAccountLink(address, network, rpcPrefs),
+            })
+          }
           onClose()
         }}
         subtitle={
@@ -105,7 +121,7 @@ export default function AccountOptionsMenu({ anchorElement, onClose }) {
         }
         iconClassName="fas fa-external-link-alt"
       >
-        {rpcPrefs.blockExplorerUrl ? t('viewinExplorer') : t('viewOnEtherscan')}
+        {t('viewinExplorer')}
       </MenuItem>
       <MenuItem
         data-testid="account-options-menu__connected-sites"

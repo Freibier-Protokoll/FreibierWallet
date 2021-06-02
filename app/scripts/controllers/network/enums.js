@@ -11,8 +11,8 @@ export const ROPSTEN_NETWORK_ID = '3'
 export const RINKEBY_NETWORK_ID = '4'
 export const GOERLI_NETWORK_ID = '5'
 export const KOVAN_NETWORK_ID = '42'
-export const BINANCE_MAINNET_NETWORK_ID = '55'
-export const BINANCE_TESTNET_NETWORK_ID = '56'
+export const BINANCE_MAINNET_NETWORK_ID = '56'
+export const BINANCE_TESTNET_NETWORK_ID = '97'
 
 export const MAINNET_CHAIN_ID = '0x1'
 export const ROPSTEN_CHAIN_ID = '0x3'
@@ -31,10 +31,15 @@ export const BINANCE_MAINNET_DISPLAY_NAME = 'Binance Mainnet'
 export const BINANCE_TESTNET_DISPLAY_NAME = 'Binance Testnet'
 
 export const BINANCE_MAINNET_RPCURL = 'https://bsc-dataseed.binance.org/'
-export const BINANCE_TESTNET_RPCURL = 'https://data-seed-prebsc-1-s1.binance.org:8545/'
+export const BINANCE_TESTNET_RPCURL =
+  'https://data-seed-prebsc-1-s1.binance.org:8545/'
 
 export const INFURA_PROVIDER_TYPES = [ROPSTEN, RINKEBY, KOVAN, MAINNET, GOERLI]
 export const BINANCE_PROVIDER_TYPES = [BINANCE_MAINNET, BINANCE_TESTNET]
+export const BINANCE_NETWORK_IDS = [
+  BINANCE_MAINNET_NETWORK_ID,
+  BINANCE_TESTNET_NETWORK_ID,
+]
 
 export const NETWORK_TYPE_TO_ID_MAP = {
   [BINANCE_MAINNET]: {
