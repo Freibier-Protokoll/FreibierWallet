@@ -56,6 +56,7 @@ const EthOverview = ({ className }) => {
   const showFiat = useSelector(getShouldShowFiat)
   const selectedAccount = useSelector(getSelectedAccount)
   const { balance } = selectedAccount
+  console.log(balance)
   const primaryTokenImage = useSelector(getNativeCurrencyImage)
   return (
     <WalletOverview
