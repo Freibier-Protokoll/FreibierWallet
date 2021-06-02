@@ -97,7 +97,6 @@ export default class NetworksTab extends PureComponent {
       (listItemUrlIsProviderUrl || listItemTypeIsProviderNonRpcType)
     const displayNetworkListItemAsSelected =
       listItemNetworkIsSelected || listItemNetworkIsCurrentProvider
-
     return (
       <div
         key={`settings-network-list-item:${rpcUrl}`}
@@ -140,7 +139,6 @@ export default class NetworksTab extends PureComponent {
       networksTabIsInAddMode,
       networkDefaultedToProvider,
     } = this.props
-
     return (
       <div
         className={classnames('networks-tab__networks-list', {

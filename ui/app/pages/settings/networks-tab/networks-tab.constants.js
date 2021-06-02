@@ -1,4 +1,10 @@
 import {
+  BINANCE_MAINNET,
+  BINANCE_MAINNET_CHAIN_ID,
+  BINANCE_MAINNET_RPCURL,
+  BINANCE_TESTNET,
+  BINANCE_TESTNET_CHAIN_ID,
+  BINANCE_TESTNET_RPCURL,
   GOERLI,
   GOERLI_CHAIN_ID,
   KOVAN,
@@ -10,6 +16,7 @@ import {
   ROPSTEN,
   ROPSTEN_CHAIN_ID,
 } from '../../../../../app/scripts/controllers/network/enums'
+import { BNB_SYMBOL } from '../../../../../shared/constants/network'
 
 const defaultNetworksData = [
   {
@@ -20,6 +27,24 @@ const defaultNetworksData = [
     chainId: MAINNET_CHAIN_ID,
     ticker: 'ETH',
     blockExplorerUrl: 'https://etherscan.io',
+  },
+  {
+    labelKey: BINANCE_MAINNET,
+    iconColor: '#29B6AA',
+    providerType: BINANCE_MAINNET,
+    rpcUrl: BINANCE_MAINNET_RPCURL,
+    chainId: BINANCE_MAINNET_CHAIN_ID,
+    ticker: BNB_SYMBOL,
+    blockExplorerUrl: 'https://www.bscscan.com/',
+  },
+  {
+    labelKey: BINANCE_TESTNET,
+    iconColor: '#29B600',
+    providerType: BINANCE_TESTNET,
+    rpcUrl: BINANCE_TESTNET_RPCURL,
+    chainId: BINANCE_TESTNET_CHAIN_ID,
+    ticker: BNB_SYMBOL,
+    blockExplorerUrl: 'https://testnet.bscscan.com/',
   },
   {
     labelKey: ROPSTEN,
