@@ -31,7 +31,6 @@ const mapStateToProps = (state, ownProps) => {
 
   const { frequentRpcListDetail, provider } = state.metamask
   const { networksTabSelectedRpcUrl, networksTabIsInAddMode } = state.appState
-
   const frequentRpcNetworkListDetails = frequentRpcListDetail.map((rpc) => {
     return {
       label: rpc.nickname,
