@@ -143,7 +143,7 @@ export default class UnlockPage extends Component {
       <div className="unlock-page__container">
         <div className="unlock-page">
           <div className="unlock-page__mascot-container">
-            <img src="images/logo/freibier-logo.png" width = "182.65px" />
+            <img src="images/logo/freibier-logo.png" width = "152.65px" />
           </div>
           <h1 className="unlock-page__title">{t('welcomeBack')}</h1>
           <div>{t('unlockMessage')}</div>
