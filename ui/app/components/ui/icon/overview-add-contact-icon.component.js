@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export default function AddContactIcon({
-  width = '15',
-  height = '15',
+  width = '28',
+  height = '28',
   fill = 'white',
 }) {
   return (

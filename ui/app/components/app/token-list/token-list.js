@@ -8,6 +8,7 @@ import { useI18nContext } from '../../../hooks/useI18nContext'
 import { useTokenTracker } from '../../../hooks/useTokenTracker'
 import { getAssetImages } from '../../../selectors'
 import { getTokens } from '../../../ducks/metamask/metamask'
+import console from 'console'
 
 export default function TokenList({ onTokenClick }) {
   const t = useI18nContext()
@@ -16,6 +17,7 @@ export default function TokenList({ onTokenClick }) {
   // from the background so it has a new reference with each background update,
   // even if the tokens haven't changed
   const tokens = useSelector(getTokens, isEqual)
+  console.log(tokens)
   const { loading, tokensWithBalances } = useTokenTracker(tokens, true)
 
   if (loading) {
