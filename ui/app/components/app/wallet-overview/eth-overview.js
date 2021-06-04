@@ -23,9 +23,9 @@ import {
 } from '../../../selectors/selectors'
 import BuyIcon from '../../ui/icon/overview-buy-icon.component'
 import SendIcon from '../../ui/icon/overview-send-icon.component'
+import AddContactIcon from '../../ui/icon/overview-add-contact-icon.component'
 import IconButton from '../../ui/icon-button'
 import WalletOverview from './wallet-overview'
-import Approve from '../../ui/icon/approve-icon.component'
 
 const EthOverview = ({ className }) => {
   const dispatch = useDispatch()
@@ -101,15 +101,6 @@ const EthOverview = ({ className }) => {
         <>
           <IconButton
             className="eth-overview__button"
-            Icon={BuyIcon}
-            label={t('buy')}
-            onClick={() => {
-              depositEvent()
-              dispatch(showModal({ name: 'DEPOSIT_ETHER' }))
-            }}
-          />
-          <IconButton
-            className="eth-overview__button"
             data-testid="eth-overview-send"
             Icon={SendIcon}
             label={t('send')}
@@ -121,7 +112,7 @@ const EthOverview = ({ className }) => {
           <IconButton
             className="eth-overview__button"
             data-testid="eth-overview-add-contact"
-            Icon={Approve}
+            Icon={AddContactIcon}
             label={t('addContact')}
             onClick={() => {
               addContactEvent()
