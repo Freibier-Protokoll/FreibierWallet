@@ -17,7 +17,6 @@ import { useTokenFiatAmount } from '../../../hooks/useTokenFiatAmount'
 import { updateSendToken } from '../../../store/actions'
 import {
   getAssetImages,
-  getCurrentKeyring,
 } from '../../../selectors/selectors'
 
 import SendIcon from '../../ui/icon/overview-send-icon.component'
@@ -38,7 +37,6 @@ const TokenOverview = ({ className, token }) => {
   const history = useHistory()
   const assetImages = useSelector(getAssetImages)
 
-  const keyring = useSelector(getCurrentKeyring)
   const { tokensWithBalances } = useTokenTracker([token])
   const balanceToRender = tokensWithBalances[0]?.string
   const formattedFiatBalance = useTokenFiatAmount(
