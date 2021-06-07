@@ -40,6 +40,9 @@ export const BNB_SYMBOL = 'BNB';
 export const ETH_TOKEN_IMAGE_URL = './images/eth_logo.svg';
 export const TEST_ETH_TOKEN_IMAGE_URL = './images/black-eth-logo.svg';
 export const BNB_TOKEN_IMAGE_URL = './images/bnb-logo.png';
+export const FREIBIER_TOKEN_IMAGE_URL = './images/logo/freibier-logo.png'
+
+export const FREIBIER_ADDRESS = '0x26046abedf7117af40ca645350eb857d170bf71f'
 
 export const INFURA_PROVIDER_TYPES = [ROPSTEN, RINKEBY, KOVAN, MAINNET, GOERLI];
 
