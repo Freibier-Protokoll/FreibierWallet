@@ -34,6 +34,13 @@ const EthOverview = ({ className }) => {
       name: 'Clicked Add Contact',
     },
   })
+  const sendEvent = useMetricEvent({
+    eventOpts: {
+      category: 'Navigation',
+      action: 'Home',
+      name: 'Clicked Send: Eth',
+    },
+  })
   const history = useHistory()
   const balanceIsCached = useSelector(isBalanceCached)
   const showFiat = useSelector(getShouldShowFiat)
