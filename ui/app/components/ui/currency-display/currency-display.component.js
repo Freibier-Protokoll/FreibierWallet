@@ -28,7 +28,6 @@ export default function CurrencyDisplay({
     currency,
     suffix,
   })
-  console.log(value, currency, parts, title)
   return (
     <div
       className={classnames('currency-display-component', className)}

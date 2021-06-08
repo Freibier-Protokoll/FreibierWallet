@@ -1,7 +1,6 @@
 import EventEmitter from 'events'
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Mascot from '../../../components/ui/mascot'
 import Button from '../../../components/ui/button'
 import {
   INITIALIZE_CREATE_PASSWORD_ROUTE,
@@ -26,12 +25,10 @@ export default class Welcome extends PureComponent {
   }
 
   componentDidMount() {
-    const { history, participateInMetaMetrics, welcomeScreenSeen } = this.props
+    const { history, welcomeScreenSeen } = this.props
 
-    if (welcomeScreenSeen && participateInMetaMetrics !== null) {
+    if (welcomeScreenSeen) {
       history.push(INITIALIZE_CREATE_PASSWORD_ROUTE)
-    } else if (welcomeScreenSeen) {
-      history.push(INITIALIZE_SELECT_ACTION_ROUTE)
     }
   }
 
@@ -45,11 +42,7 @@ export default class Welcome extends PureComponent {
     return (
       <div className="welcome-page__wrapper">
         <div className="welcome-page">
-          <Mascot
-            animationEventEmitter={this.animationEventEmitter}
-            width="125"
-            height="125"
-          />
+          <img src = "./images/logo/freibier-logo.png" width="200px" height="200px"></img>
           <div className="welcome-page__header">{t('welcome')}</div>
           <div className="welcome-page__description">
             <div>{t('metamaskDescription')}</div>
