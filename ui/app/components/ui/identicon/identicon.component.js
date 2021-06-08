@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux'
 import { getCurrentChainId } from '../../../selectors'
 import console from 'console'
 import { BINANCE_NETWORK_IDS } from '../../../../../app/scripts/controllers/network/enums'
+import { src } from 'gulp'
 
 const getStyles = (diameter) => ({
   height: diameter,
@@ -91,11 +92,11 @@ export default class Identicon extends PureComponent {
 
     const provider = useSelector(getCurrentChainId)
     console.log('Identicon: ', provider)
-    let image = ''
+    let src = ''
     if (BINANCE_NETWORK_IDS.includes(provider)) {
-      image = './images/bnb-logo.png'
+      src = './images/bnb-logo.png'
     } else {
-      image = './images/eth_logo.svg'
+      src = './images/eth_logo.svg'
     }
     if (image) {
       return this.renderImage()
@@ -120,7 +121,7 @@ export default class Identicon extends PureComponent {
     return (
       <img
         className={classnames('identicon__eth-logo', className)}
-        src={image}
+        src={src}
         style={getStyles(diameter)}
         alt={alt}
       />
