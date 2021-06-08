@@ -40,6 +40,14 @@ function createNetworkAndChainIdMiddleware({ network }) {
       netId = networkEnums.MAINNET_NETWORK_ID
       chainId = '0x01'
       break
+    case 'binanceMainnet':
+      netId = networkEnums.BINANCE_MAINNET_NETWORK_ID
+      chainId = '0x38'
+      break
+    case 'binanceTestnet':
+      netId = networkEnums.BINANCE_TESTNET_NETWORK_ID
+      chainId = '0x61'
+      break
     case 'ropsten':
       netId = networkEnums.ROPSTEN_NETWORK_ID
       chainId = '0x03'
