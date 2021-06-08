@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export default function AddContactIcon({
-  width = '40',
-  height = '40',
+  width = '65',
+  height = '65',
   fill = 'white',
 }) {
   return (
@@ -12,6 +12,8 @@ export default function AddContactIcon({
       height={height}
       viewBox={`0 0 ${width} ${height}`}
       fill="none"
+      x="100px"
+      y="100px"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
