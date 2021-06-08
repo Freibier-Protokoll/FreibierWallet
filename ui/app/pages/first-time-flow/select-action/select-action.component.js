@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../../../components/ui/button'
-import MetaFoxLogo from '../../../components/ui/metafox-logo'
-import { IMPORT_ACCOUNT_ROUTE, INITIALIZE_CREATE_PASSWORD_ROUTE, INITIALIZE_IMPORT_WITH_SEED_PHRASE_ROUTE } from '../../../helpers/constants/routes'
+import {
+  INITIALIZE_CREATE_PASSWORD_ROUTE,
+  INITIALIZE_IMPORT_WITH_SEED_PHRASE_ROUTE,
+} from '../../../helpers/constants/routes'
 
 export default class SelectAction extends PureComponent {
   static propTypes = {
@@ -39,8 +41,6 @@ export default class SelectAction extends PureComponent {
 
     return (
       <div className="select-action">
-
-
         <div className="select-action__wrapper">
           <div className="select-action__body">
             <div className="select-action__body-header">

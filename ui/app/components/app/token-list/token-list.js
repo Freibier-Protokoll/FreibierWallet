@@ -32,12 +32,8 @@ export default function TokenList({ onTokenClick }) {
   if (!contains) {
     tokens.push(freibier)
   }
-
-  console.log(assetImages)
   assetImages[freibier.address] = FREIBIER_TOKEN_IMAGE_URL
-
   const { loading, tokensWithBalances } = useTokenTracker(tokens, true)
-  console.log('Tokens with Balance', tokensWithBalances, 'Tokens', tokens)
   if (loading) {
     return (
       <div

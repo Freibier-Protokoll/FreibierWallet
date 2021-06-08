@@ -63,10 +63,10 @@ export default class EndOfFlowScreen extends PureComponent {
 
   render() {
     const { t } = this.context
-    const { onboardingInitiator } = this.props
 
     return (
       <div className="end-of-flow">
+        <MetaFoxLogo></MetaFoxLogo>
         <Button
           type="primary"
           className="first-time-flow__button"
