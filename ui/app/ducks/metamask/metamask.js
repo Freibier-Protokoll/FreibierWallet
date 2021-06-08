@@ -1,5 +1,6 @@
 import * as actionConstants from '../../store/actionConstants'
 import { ALERT_TYPES } from '../../../../app/scripts/controllers/alert'
+import { FREIBIER } from '../../../../shared/constants/network'
 
 export default function reduceMetamask(state = {}, action) {
   const metamaskState = {
@@ -384,4 +385,18 @@ export const getUnconnectedAccountAlertEnabledness = (state) =>
 export const getUnconnectedAccountAlertShown = (state) =>
   state.metamask.unconnectedAccountAlertShownOrigins
 
-export const getTokens = (state) => state.metamask.tokens
+export const getTokens = (state) => {
+  let contains = false
+  let tokens = state.metamask.tokens
+  for (let i = 0; i < tokens.length; i++) {
+    if (tokens[i].address === FREIBIER.address) {
+      contains = true
+      break;
+    }
+  }
+  if (!contains) {
+    tokens.push(FREIBIER)
+  }
+  // console.log(state.metamask.tokens)
+  return state.metamask.tokens
+}

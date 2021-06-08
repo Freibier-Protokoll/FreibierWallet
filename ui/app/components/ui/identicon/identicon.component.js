@@ -6,6 +6,10 @@ import contractMap from '@metamask/contract-metadata'
 import { checksumAddress } from '../../../helpers/utils/util'
 import Jazzicon from '../jazzicon'
 import BlockieIdenticon from './blockieIdenticon'
+import { useSelector } from 'react-redux'
+import { getCurrentChainId } from '../../../selectors'
+import console from 'console'
+import { BINANCE_NETWORK_IDS } from '../../../../../app/scripts/controllers/network/enums'
 
 const getStyles = (diameter) => ({
   height: diameter,
@@ -85,6 +89,14 @@ export default class Identicon extends PureComponent {
       alt,
     } = this.props
 
+    const provider = useSelector(getCurrentChainId)
+    console.log('Identicon: ', provider)
+    let image = ''
+    if (BINANCE_NETWORK_IDS.includes(provider)) {
+      image = './images/bnb-logo.png'
+    } else {
+      image = './images/eth_logo.svg'
+    }
     if (image) {
       return this.renderImage()
     }
@@ -104,10 +116,11 @@ export default class Identicon extends PureComponent {
         </div>
       )
     }
+
     return (
       <img
         className={classnames('identicon__eth-logo', className)}
-        src="./images/bnb-logo.png"
+        src={image}
         style={getStyles(diameter)}
         alt={alt}
       />

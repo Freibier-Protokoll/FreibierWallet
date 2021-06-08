@@ -2,7 +2,11 @@ import { stripHexPrefix } from 'ethereumjs-util'
 import { createSelector } from 'reselect'
 import { addHexPrefix } from '../../../app/scripts/lib/util'
 import { NETWORK_TYPES } from '../helpers/constants/common'
-import { NATIVE_CURRENCY_TOKEN_IMAGE_MAP } from '../../../shared/constants/network'
+import {
+  NATIVE_CURRENCY_TOKEN_IMAGE_MAP,
+  FREIBIER,
+  FREIBIER_TOKEN_IMAGE_URL,
+} from '../../../shared/constants/network'
 
 import {
   shortenAddress,
@@ -10,9 +14,6 @@ import {
   getAccountByAddress,
 } from '../helpers/utils/util'
 import { getPermissionsRequestCount } from './permissions'
-
-import { getNativeCurrency } from './send'
-import console from 'console'
 
 export function getNetworkIdentifier(state) {
   const {
@@ -180,6 +181,8 @@ export const getTokenExchangeRates = (state) =>
 
 export function getAssetImages(state) {
   const assetImages = state.metamask.assetImages || {}
+  assetImages[FREIBIER.address] = FREIBIER_TOKEN_IMAGE_URL
+  console.log(assetImages)
   return assetImages
 }
 
