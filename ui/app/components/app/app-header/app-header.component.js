@@ -106,7 +106,9 @@ export default class AppHeader extends PureComponent {
           'app-header--back-drop': isUnlocked,
         })}
       >
-        <div className="app-header__contents">
+        <div
+          className="app-header__contents"
+        >
           <MetaFoxLogo
             unsetIconHeight
             onClick={async () => {

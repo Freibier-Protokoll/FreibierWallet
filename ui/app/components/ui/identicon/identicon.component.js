@@ -7,6 +7,7 @@ import { checksumAddress } from '../../../helpers/utils/util'
 import Jazzicon from '../jazzicon'
 import BlockieIdenticon from './blockieIdenticon'
 import { BINANCE_NETWORK_IDS } from '../../../../../app/scripts/controllers/network/enums'
+import console from 'console'
 
 const getStyles = (diameter) => ({
   height: diameter,
@@ -89,7 +90,6 @@ export default class Identicon extends PureComponent {
     } = this.props
 
     const isBinance = BINANCE_NETWORK_IDS.includes(network)
-
     if (image) {
       return this.renderImage()
     }

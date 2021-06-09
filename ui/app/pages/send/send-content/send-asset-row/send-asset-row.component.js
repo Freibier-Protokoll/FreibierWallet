@@ -6,6 +6,7 @@ import TokenBalance from '../../../../components/ui/token-balance'
 import UserPreferencedCurrencyDisplay from '../../../../components/app/user-preferenced-currency-display'
 import { PRIMARY } from '../../../../helpers/constants/common'
 import { BINANCE_NETWORK_IDS } from '../../../../../../app/scripts/controllers/network/enums'
+import { FREIBIER_TOKEN_IMAGE_URL } from '../../../../../../shared/constants/network'
 
 export default class SendAssetRow extends Component {
   static propTypes = {
@@ -110,7 +111,6 @@ export default class SendAssetRow extends Component {
       ? accounts[selectedAddress].balance
       : ''
     const isBinance = BINANCE_NETWORK_IDS.includes(network)
-    console.log(isBinance, network, BINANCE_NETWORK_IDS)
     return (
       <div
         className={
@@ -147,7 +147,6 @@ export default class SendAssetRow extends Component {
   renderAsset(token, insideDropdown = false) {
     const { address, symbol } = token
     const { t } = this.context
-
     return (
       <div
         key={address}
@@ -155,7 +154,11 @@ export default class SendAssetRow extends Component {
         onClick={() => this.selectToken(token)}
       >
         <div className="send-v2__asset-dropdown__asset-icon">
-          <Identicon address={address} diameter={36} />
+          <Identicon
+            image={symbol === 'Freibier' ? FREIBIER_TOKEN_IMAGE_URL : null}
+            address={address}
+            diameter={36}
+          />
         </div>
         <div className="send-v2__asset-dropdown__asset-data">
           <div className="send-v2__asset-dropdown__symbol">{symbol}</div>
