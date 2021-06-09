@@ -293,7 +293,7 @@ export default class SendTransactionScreen extends Component {
   }
 
   render() {
-    const { history, to } = this.props
+    const { history, to, network} = this.props
     let content
 
     if (to) {
@@ -304,7 +304,7 @@ export default class SendTransactionScreen extends Component {
 
     return (
       <div className="page-container">
-        <SendHeader history={history} />
+        <SendHeader history={history} network={network}/>
         {this.renderInput()}
         {content}
       </div>
