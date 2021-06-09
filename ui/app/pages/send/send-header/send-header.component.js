@@ -21,11 +21,18 @@ export default class SendHeader extends Component {
   }
 
   render() {
+    let title = ''
+    if (this.props.titleKey === 'sendEth') {
+      title = 'Send'
+    } else {
+      title = this.context.t(this.props.titleKey)
+    }
+
     return (
       <PageContainerHeader
         className="send__header"
         onClose={() => this.onClose()}
-        title={this.context.t(this.props.titleKey)}
+        title={title}
         headerCloseText={this.context.t('cancel')}
       />
     )

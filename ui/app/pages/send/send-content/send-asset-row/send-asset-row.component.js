@@ -19,6 +19,7 @@ export default class SendAssetRow extends Component {
     selectedAddress: PropTypes.string.isRequired,
     sendTokenAddress: PropTypes.string,
     setSendToken: PropTypes.func.isRequired,
+    network: PropTypes.string,
   }
 
   static contextTypes = {
