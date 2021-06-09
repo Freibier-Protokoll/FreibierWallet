@@ -85,6 +85,9 @@ export default class Identicon extends PureComponent {
       alt,
     } = this.props
 
+    // const provider = useSelector(getCurrentChainId)
+    // console.log('Identicon: ', provider)
+
     if (image) {
       return this.renderImage()
     }
@@ -104,10 +107,11 @@ export default class Identicon extends PureComponent {
         </div>
       )
     }
+
     return (
       <img
         className={classnames('identicon__eth-logo', className)}
-        src="./images/bnb-logo.png"
+        src={true ? './images/bnb-logo.png' : './images/eth_logo.svg'}
         style={getStyles(diameter)}
         alt={alt}
       />

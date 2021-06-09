@@ -66,7 +66,7 @@ export default class EndOfFlowScreen extends PureComponent {
 
     return (
       <div className="end-of-flow">
-        <MetaFoxLogo></MetaFoxLogo>
+        <MetaFoxLogo />
         <Button
           type="primary"
           className="first-time-flow__button"
