@@ -28,6 +28,8 @@ export default class SendHeader extends Component {
       title = this.context.t(this.props.titleKey)
     }
 
+    console.log(this.props.titleKey, title)
+
     return (
       <PageContainerHeader
         className="send__header"
