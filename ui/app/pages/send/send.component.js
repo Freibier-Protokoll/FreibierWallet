@@ -356,7 +356,7 @@ export default class SendTransactionScreen extends Component {
   }
 
   renderSendContent() {
-    const { history, showHexData } = this.props
+    const { history, showHexData, tokens } = this.props
     const { toWarning } = this.state
 
     return [
@@ -367,6 +367,7 @@ export default class SendTransactionScreen extends Component {
         }
         showHexData={showHexData}
         warning={toWarning}
+        tokens={tokens}
       />,
       <SendFooter key="send-footer" history={history} />,
     ]

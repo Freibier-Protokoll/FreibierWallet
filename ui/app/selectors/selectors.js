@@ -182,7 +182,6 @@ export const getTokenExchangeRates = (state) =>
 export function getAssetImages(state) {
   const assetImages = state.metamask.assetImages || {}
   assetImages[FREIBIER.address] = FREIBIER_TOKEN_IMAGE_URL
-  console.log(assetImages)
   return assetImages
 }
 
