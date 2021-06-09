@@ -1,7 +1,7 @@
 .app-header {
   align-items: center;
 
-  //background: $brown-100;
+  background: $brown-100;
   position: relative;
   color:white;
   z-index: $header-z-index;
@@ -26,7 +26,7 @@
         width: 100%;
         height: 32px;
         // background-image: url('/app/images/bierschaum2.png');
-        //background: $brown-100;
+        background: $brown-100;
         bottom: -32px;
       }
     }
@@ -49,7 +49,6 @@
   }
 
   &__contents {
-    background-image: url('/app/images/bierschaum2.png');
     display: flex;
     flex-flow: row nowrap;
     width: 100%;
