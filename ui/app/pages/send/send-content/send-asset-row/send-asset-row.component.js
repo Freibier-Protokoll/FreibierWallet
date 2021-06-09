@@ -5,6 +5,7 @@ import Identicon from '../../../../components/ui/identicon/identicon.component'
 import TokenBalance from '../../../../components/ui/token-balance'
 import UserPreferencedCurrencyDisplay from '../../../../components/app/user-preferenced-currency-display'
 import { PRIMARY } from '../../../../helpers/constants/common'
+import { BINANCE_NETWORK_IDS } from '../../../../../../app/scripts/controllers/network/enums'
 
 export default class SendAssetRow extends Component {
   static propTypes = {
@@ -103,12 +104,13 @@ export default class SendAssetRow extends Component {
 
   renderEth(insideDropdown = false) {
     const { t } = this.context
-    const { accounts, selectedAddress } = this.props
+    const { accounts, selectedAddress, network } = this.props
 
     const balanceValue = accounts[selectedAddress]
       ? accounts[selectedAddress].balance
       : ''
-
+    const isBinance = BINANCE_NETWORK_IDS.includes(network)
+    console.log(isBinance, network, BINANCE_NETWORK_IDS)
     return (
       <div
         className={
@@ -122,7 +124,9 @@ export default class SendAssetRow extends Component {
           <Identicon diameter={36} />
         </div>
         <div className="send-v2__asset-dropdown__asset-data">
-          <div className="send-v2__asset-dropdown__symbol">ETH</div>
+          <div className="send-v2__asset-dropdown__symbol">
+            {isBinance ? 'BNB' : 'ETH'}
+          </div>
           <div className="send-v2__asset-dropdown__name">
             <span className="send-v2__asset-dropdown__name__label">
               {`${t('balance')}:`}
