@@ -1,7 +1,7 @@
 {
   "applications": {
     "gecko": {
-      "id": "webextension@metamask.io",
+      "id": "freibierwallet@freibier.army",
       "strict_min_version": "56.0"
     }
   }
