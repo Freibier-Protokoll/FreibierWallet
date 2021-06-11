@@ -18,7 +18,7 @@ export default class InfoTab extends PureComponent {
       <div className="settings-page__content-item settings-page__content-item--without-height">
         <div className="info-tab__link-header">{t('links')}</div>
         <div className="info-tab__link-item">
-          <Button
+          {/* <Button
             type="link"
             href="https://metamask.io/privacy.html"
             target="_blank"
@@ -26,12 +26,12 @@ export default class InfoTab extends PureComponent {
             className="info-tab__link-text"
           >
             {t('privacyMsg')}
-          </Button>
+          </Button> */}
         </div>
         <div className="info-tab__link-item">
           <Button
             type="link"
-            href="https://metamask.io/terms.html"
+            href="https://daubit.org/impressum.html"
             target="_blank"
             rel="noopener noreferrer"
             className="info-tab__link-text"
@@ -43,7 +43,7 @@ export default class InfoTab extends PureComponent {
         <div className="info-tab__link-item">
           <Button
             type="link"
-            href="https://metamask.io/"
+            href="https://freibier.army/"
             target="_blank"
             rel="noopener noreferrer"
             className="info-tab__link-text"

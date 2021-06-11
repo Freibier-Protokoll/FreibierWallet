@@ -100,15 +100,19 @@ export default class AppHeader extends PureComponent {
       onClick,
     } = this.props
 
+    const styles = {
+      paperContainer: {
+        backgroundImage: `url(${'/app/images/bierschaum.jpg'})`,
+      },
+    }
+    console.log(styles)
     return (
       <div
         className={classnames('app-header', {
           'app-header--back-drop': isUnlocked,
         })}
       >
-        <div
-          className="app-header__contents"
-        >
+        <div className="app-header__contents" style={styles.paperContainer}>
           <MetaFoxLogo
             unsetIconHeight
             onClick={async () => {
