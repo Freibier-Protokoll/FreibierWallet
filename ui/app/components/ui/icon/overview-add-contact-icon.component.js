@@ -10,10 +10,8 @@ export default function AddContactIcon({
     <svg
       width={width}
       height={height}
-      viewBox={`0 0 ${width} ${height}`}
+      viewBox={`-17 -17 ${width} ${height}`}
       fill="none"
-      x="100"
-      y="100"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

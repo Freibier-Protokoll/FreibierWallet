@@ -5,6 +5,8 @@ import Identicon from '../../../../components/ui/identicon/identicon.component'
 import TokenBalance from '../../../../components/ui/token-balance'
 import UserPreferencedCurrencyDisplay from '../../../../components/app/user-preferenced-currency-display'
 import { PRIMARY } from '../../../../helpers/constants/common'
+import { BINANCE_NETWORK_IDS } from '../../../../../../app/scripts/controllers/network/enums'
+import { FREIBIER_TOKEN_IMAGE_URL } from '../../../../../../shared/constants/network'
 
 export default class SendAssetRow extends Component {
   static propTypes = {
@@ -19,6 +21,7 @@ export default class SendAssetRow extends Component {
     selectedAddress: PropTypes.string.isRequired,
     sendTokenAddress: PropTypes.string,
     setSendToken: PropTypes.func.isRequired,
+    network: PropTypes.string,
   }
 
   static contextTypes = {
@@ -102,12 +105,12 @@ export default class SendAssetRow extends Component {
 
   renderEth(insideDropdown = false) {
     const { t } = this.context
-    const { accounts, selectedAddress } = this.props
+    const { accounts, selectedAddress, network } = this.props
 
     const balanceValue = accounts[selectedAddress]
       ? accounts[selectedAddress].balance
       : ''
-
+    const isBinance = BINANCE_NETWORK_IDS.includes(network)
     return (
       <div
         className={
@@ -118,10 +121,12 @@ export default class SendAssetRow extends Component {
         onClick={() => this.selectToken()}
       >
         <div className="send-v2__asset-dropdown__asset-icon">
-          <Identicon diameter={36} />
+          <Identicon diameter={36} network={network} />
         </div>
         <div className="send-v2__asset-dropdown__asset-data">
-          <div className="send-v2__asset-dropdown__symbol">ETH</div>
+          <div className="send-v2__asset-dropdown__symbol">
+            {isBinance ? 'BNB' : 'ETH'}
+          </div>
           <div className="send-v2__asset-dropdown__name">
             <span className="send-v2__asset-dropdown__name__label">
               {`${t('balance')}:`}
@@ -142,7 +147,6 @@ export default class SendAssetRow extends Component {
   renderAsset(token, insideDropdown = false) {
     const { address, symbol } = token
     const { t } = this.context
-
     return (
       <div
         key={address}
@@ -150,7 +154,11 @@ export default class SendAssetRow extends Component {
         onClick={() => this.selectToken(token)}
       >
         <div className="send-v2__asset-dropdown__asset-icon">
-          <Identicon address={address} diameter={36} />
+          <Identicon
+            image={symbol === 'Freibier' ? FREIBIER_TOKEN_IMAGE_URL : null}
+            address={address}
+            diameter={36}
+          />
         </div>
         <div className="send-v2__asset-dropdown__asset-data">
           <div className="send-v2__asset-dropdown__symbol">{symbol}</div>

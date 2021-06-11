@@ -20,18 +20,19 @@ export default class SendContent extends Component {
     isOwnedAccount: PropTypes.bool,
     warning: PropTypes.string,
     tokens: PropTypes.array,
+    network: PropTypes.string,
   }
 
   updateGas = (updateData) => this.props.updateGas(updateData)
 
   render() {
-    const { warning, tokens } = this.props
+    const { warning, tokens, network } = this.props
     return (
       <PageContainerContent>
         <div className="send-v2__form">
           {warning && this.renderWarning()}
           {this.maybeRenderAddContact()}
-          <SendAssetRow tokens={tokens} />
+          <SendAssetRow tokens={tokens} network={network} />
           <SendAmountRow updateGas={this.updateGas} />
           <SendGasRow />
           {this.props.showHexData && (

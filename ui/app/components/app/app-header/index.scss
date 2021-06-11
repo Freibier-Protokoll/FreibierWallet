@@ -1,7 +1,13 @@
 .app-header {
   align-items: center;
-  background-image: url('/app/images/bierschaum2.png');
-  //background: $brown-100;
+
+  background: $brown-100;
+
+  background-image: url('/app/images/bierschaum.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  
   position: relative;
   color:white;
   z-index: $header-z-index;
@@ -25,8 +31,8 @@
         position: absolute;
         width: 100%;
         height: 32px;
-        background-image: url('/app/images/bierschaum2.png');
-        //background: $brown-100;
+        // background-image: url('/app/images/bierschaum2.png');
+        background: $brown-100;
         bottom: -32px;
       }
     }
@@ -89,7 +95,7 @@
     width: 0;
     flex-flow: row nowrap;
     justify-content: flex-end;
-    background-image: url('/app/images/bierschaum2.png');
+    background-image: url('/app/images/bierschaum.jpg');
   }
 
   &__network-component-wrapper {
@@ -99,7 +105,7 @@
     flex: 1 0 auto;
     width: 0;
     justify-content: flex-end;
-    background-image: url('/app/images/bierschaum2.png');
+    background-image: url('/app/images/bierschaum.jpg');
 
     .network-component.pointer {
       max-width: 200px;

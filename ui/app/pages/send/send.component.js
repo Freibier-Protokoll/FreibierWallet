@@ -293,7 +293,7 @@ export default class SendTransactionScreen extends Component {
   }
 
   render() {
-    const { history, to } = this.props
+    const { history, to, network} = this.props
     let content
 
     if (to) {
@@ -304,7 +304,7 @@ export default class SendTransactionScreen extends Component {
 
     return (
       <div className="page-container">
-        <SendHeader history={history} />
+        <SendHeader history={history} network={network}/>
         {this.renderInput()}
         {content}
       </div>
@@ -356,7 +356,7 @@ export default class SendTransactionScreen extends Component {
   }
 
   renderSendContent() {
-    const { history, showHexData, tokens } = this.props
+    const { history, showHexData, tokens, network } = this.props
     const { toWarning } = this.state
 
     return [
@@ -368,6 +368,7 @@ export default class SendTransactionScreen extends Component {
         showHexData={showHexData}
         warning={toWarning}
         tokens={tokens}
+        network={network}
       />,
       <SendFooter key="send-footer" history={history} />,
     ]

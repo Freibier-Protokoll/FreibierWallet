@@ -102,7 +102,7 @@ export default function AccountOptionsMenu({ anchorElement, onClose }) {
           if (isBinance) {
             viewOnBscscanEvent()
             global.platform.openTab({
-              url: getBinanceLink(network, address),
+              url: getBinanceLink(address, network),
             })
           } else {
             viewOnEtherscanEvent()
